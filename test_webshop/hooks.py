@@ -21,6 +21,9 @@ app_license = "mit"
 # 	}
 # ]
 
+
+web_include_css = "/assets/test_webshop/css/homepage.css"
+
 # Includes in <head>
 # ------------------
 

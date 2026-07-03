@@ -1,0 +1,428 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body{
+    font-family:'Inter',sans-serif;
+    background:#f8faf7;
+}
+
+/* Hero */
+.hero-banner{
+    position:relative;
+    min-height:300px;
+    background:
+    linear-gradient(rgba(6,73,30,.75),rgba(6,73,30,.75)),
+    url("/files/banner11.jpg") center/cover no-repeat;
+    display:flex;
+    align-items:center;
+}
+
+.hero-content{
+    color:#fff;
+}
+
+.hero-content h1{
+    font-size:42px;
+    font-weight:700;
+}
+
+.hero-content p{
+    font-size:18px;
+}
+
+.about-section h4,
+.why-us h4{
+    color:#06491E;
+    font-weight:700;
+}
+
+.service-card{
+    background:#fff;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.service-card:hover{
+    transform:translateY(-5px);
+}
+
+.service-card h6{
+    color:#06491E;
+    font-weight:600;
+}
+
+.icon-circle{
+    width:42px;
+    height:42px;
+    background:#06491E;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.whatsapp-bg{
+    background:#06491E;
+}
+</style>
+
+<!-- HERO -->
+<section class="hero-banner">
+    <div class="container">
+        <div class="hero-content">
+            <h1>About Us</h1>
+            <p>
+                Delivering Freshness, Quality and Trust to Every Home.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT CONTENT -->
+<section class="about-section py-5">
+    <div class="container">
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-7">
+
+                <h4>Welcome to Quantumberg Store</h4>
+
+                <p>
+                    At Quantumberg Store, we believe grocery shopping should be
+                    simple, affordable, and enjoyable. We provide a wide range of
+                    premium groceries, cooking essentials, spices, edible oils,
+                    beverages, snacks, and household products sourced from trusted
+                    brands.
+                </p>
+
+                <p>
+                    Every product is carefully selected to ensure freshness,
+                    quality, and value. Whether you're stocking your kitchen or
+                    shopping for everyday essentials, we strive to provide an
+                    exceptional shopping experience with reliable service and
+                    timely delivery.
+                </p>
+
+                <h5 class="mt-4">Our Vision</h5>
+
+                <p>
+                    To become the most trusted online grocery destination by
+                    delivering quality products with exceptional customer service.
+                </p>
+
+                <h5 class="mt-4">Our Mission</h5>
+
+                <p>
+                    To make grocery shopping convenient through premium products,
+                    competitive pricing, and fast doorstep delivery.
+                </p>
+
+            </div>
+
+            <div class="col-lg-5 text-center">
+                <img src="/files/banner_img2.png"
+                     class="img-fluid rounded shadow">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- SERVICES -->
+<section class="container py-5">
+
+<div class="text-center mb-5">
+    <h4>What We Offer</h4>
+    <p class="text-muted">
+        Everything your family needs under one roof.
+    </p>
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-3 col-md-6">
+<div class="service-card text-center">
+<img src="/files/coconut_oil.png" class="img-fluid rounded mb-3">
+<h6>Fresh Fruits & Vegetables</h6>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-6">
+<div class="service-card text-center">
+<img src="/files/sunflower.png" class="img-fluid rounded mb-3">
+<h6>Cooking Oils & Essentials</h6>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-6">
+<div class="service-card text-center">
+<img src="/files/groundnut.png" class="img-fluid rounded mb-3">
+<h6>Snacks & Beverages</h6>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-6">
+<div class="service-card text-center">
+<img src="/files/coconut_oil.png" class="img-fluid rounded mb-3">
+<h6>Fast Home Delivery</h6>
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- 
+<section class="why-us py-5">
+    <div class="container">
+
+        <h4 class="mb-5 text-center fw-bold">
+            Why Choose Quantumberg Store?
+        </h4>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="why-item">
+                    <div class="icon-circle">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <span>Fresh & Premium Quality Products</span>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="why-item">
+                    <div class="icon-circle">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <span>Affordable Everyday Prices</span>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="why-item">
+                    <div class="icon-circle">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <span>Wide Range of Grocery Items</span>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="why-item">
+                    <div class="icon-circle">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <span>Fast & Reliable Delivery</span>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="why-item">
+                    <div class="icon-circle">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <span>Friendly Customer Support</span>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="why-item">
+                    <div class="icon-circle">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <span>Secure Online Shopping</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section> -->
+
+<style>
+    .icon-circle {
+        width: 40px;
+        height: 40px;
+        background-color: #3179C4;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+
+
+<section class="team-section py-5" style="background-color: #f9f4ef;">
+    <div class="container">
+        <h4 class="text-center mb-5" style="color: #6b4c26;">Meet Our Ayurvedic Experts</h4>
+        <div class="row g-4">
+            <!-- Team Member 1 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="team-card text-center p-3 rounded shadow-sm" style="background-color: #fff8f0;">
+                    <img src="/files/user.png" class="img-fluid rounded-circle mb-3"
+                        alt="Dr. Meera">
+                    <h5 style="color: #6b4c26;">Dr. Meera Sharma</h5>
+                    <p style="color: #a67c52; font-style: italic;">Ayurvedic Physician</p>
+                </div>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="team-card text-center p-3 rounded shadow-sm" style="background-color: #fff8f0;">
+                    <img src="/files/user.png" class="img-fluid rounded-circle mb-3"
+                        alt="Dr. Rajesh">
+                    <h5 style="color: #6b4c26;">Dr. Rajesh Kumar</h5>
+                    <p style="color: #a67c52; font-style: italic;">Herbal Specialist</p>
+                </div>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="team-card text-center p-3 rounded shadow-sm" style="background-color: #fff8f0;">
+                    <img src="/files/user.png" class="img-fluid rounded-circle mb-3"
+                        alt="Dr. Anjali">
+                    <h5 style="color: #6b4c26;">Dr. Anjali Verma</h5>
+                    <p style="color: #a67c52; font-style: italic;">Panchakarma Therapist</p>
+                </div>
+            </div>
+
+            <!-- Team Member 4 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="team-card text-center p-3 rounded shadow-sm" style="background-color: #fff8f0;">
+                    <img src="/files/user.png" class="img-fluid rounded-circle mb-3"
+                        alt="Dr. Vikram">
+                    <h5 style="color: #6b4c26;">Dr. Vikram Singh</h5>
+                    <p style="color: #a67c52; font-style: italic;">Yoga & Wellness Expert</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    .testimonial-card {
+        background-color: #ffffff;
+        border-radius: 12px;
+        padding: 30px 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        text-align: left;
+        height: 100%;
+    }
+
+    .testimonial-card img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 15px;
+    }
+
+    .testimonial-card h5 {
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: #0b2c5a;
+    }
+
+    .testimonial-card p.position {
+        font-size: 0.9rem;
+        color: #3179C4;
+        /* Your theme color */
+        margin-bottom: 15px;
+    }
+
+    .testimonial-card p.testimonial-text {
+        font-size: 0.95rem;
+        color: #6c757d;
+        margin-bottom: 10px;
+    }
+
+    .testimonial-card .quote {
+        font-size: 2rem;
+        color: #3179C4;
+        float: right;
+    }
+
+    .rating-card {
+        background-color: #ffffff;
+        border-radius: 12px;
+        padding: 30px 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        height: 100%;
+    }
+
+    .rating-card h2 {
+        font-size: 2rem;
+        color: #0b2c5a;
+        margin-bottom: 5px;
+    }
+
+    .rating-card span {
+        color: #ffc107;
+        /* star color */
+        font-size: 1.2rem;
+    }
+</style>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h4 class="">Testimonials</h4>
+            <a href="#" class="text-decoration-none">View All &rarr;</a>
+        </div>
+
+        <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Lee">
+                    <h5>Sarah Lee</h5>
+                    <p class="position">Frontend Developer</p>
+                    <p class="testimonial-text"><strong>Velit esse cillum dolore eu fugiat nulla pariatur excepteur
+                            sint.</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur.</p>
+                    <span class="quote">&rdquo;</span>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="David Smith">
+                    <h5>David Smith</h5>
+                    <p class="position">Project Manager</p>
+                    <p class="testimonial-text"><strong>Excepteur sint occaecat cupidatat non proident sunt in
+                            culpa.</strong> Ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit
+                        laboriosam.</p>
+                    <span class="quote">&rdquo;</span>
+                </div>
+            </div>
+
+            <!-- Card 3 (Rating Card) -->
+            <div class="col-md-4">
+                <div class="rating-card">
+                    <h2>4.9 <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span></h2>
+                    <p class="fw-bold">Top-Rated Online Pathology Service</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    {% endblock %}

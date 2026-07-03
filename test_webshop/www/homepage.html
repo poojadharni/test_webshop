@@ -1,0 +1,2151 @@
+
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+<style>
+html,
+body {
+    overflow-x: hidden;
+}
+
+/* Remove Frappe spacing */
+.container,
+.page_content,
+.page-content-wrapper,
+.web-page-content {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* =========================
+   BANNER
+========================= */
+
+.banner-section {
+    width: 100%;
+}
+
+.banner-img {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    display: block;
+}
+
+/* =========================
+   CATEGORY SECTION
+========================= */
+
+.category-section {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 20px;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.category-card {
+    text-align: center;
+    flex: 0 1 180px;
+}
+
+.category-card img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    margin: auto;
+}
+
+.category-card:hover img {
+    transform: scale(1.08);
+}
+
+.category-card p {
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #222;
+}
+
+/* Tablet */
+
+@media (max-width: 992px) {
+
+    .banner-img {
+        height: 400px;
+    }
+
+    .category-card img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Mobile Category Scroll */
+
+@media (max-width: 768px) {
+
+    .banner-img {
+        height: 250px;
+    }
+
+    .category-section {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        justify-content: flex-start;
+        gap: 12px;
+        padding: 20px 12px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .category-section::-webkit-scrollbar {
+        display: none;
+    }
+
+    .category-card {
+        flex: 0 0 calc(33.33% - 8px);
+        scroll-snap-align: start;
+    }
+
+    .category-card img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .category-card p {
+        font-size: 13px;
+        margin-top: 8px;
+    }
+}
+
+/* =========================
+   BESTSELLER SECTION
+========================= */
+
+.bestseller-section {
+    padding: 20px;
+    background: #f5f5f5;
+}
+
+.bestseller-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #0b3d2e;
+    margin-bottom: 5px;
+}
+
+.bestseller-sub {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* Slider */
+
+.slider-container {
+    width: 100%;
+}
+
+.scroll-wrapper {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.scroll-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.product-row {
+    display: flex;
+    gap: 20px;
+}
+
+/* Desktop 2 cards */
+
+.product-card {
+    flex: 0 0 calc(50% - 10px);
+
+    scroll-snap-align: start;
+
+    background: #ececec;
+    border-radius: 20px;
+
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Image */
+
+.product-img {
+    width: 160px;
+    height: 220px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Content */
+
+.product-content {
+    flex: 1;
+    text-align: left;
+}
+
+.product-title {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.price span {
+    color: #888;
+    text-decoration: line-through;
+    font-size: 16px;
+}
+
+.rating {
+    margin-bottom: 20px;
+}
+
+/* Button */
+
+.btn-cart {
+    width: 100%;
+    background: #004d1a;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Dots */
+
+.dots {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.dots span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #ccc;
+    border-radius: 50%;
+    margin: 0 4px;
+    transition: all .3s ease;
+}
+
+.dots .active {
+    width: 22px;
+    border-radius: 20px;
+    background: #000;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 992px) {
+
+    .product-card {
+        flex: 0 0 80%;
+    }
+
+    .product-img {
+        width: 130px;
+        height: 180px;
+    }
+
+    .bestseller-title {
+        font-size: 28px;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .bestseller-section {
+        padding: 15px;
+    }
+
+    .bestseller-title {
+        font-size: 24px;
+    }
+
+    .bestseller-sub {
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+
+    .product-card {
+        flex: 0 0 100%;
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .product-img {
+        width: 90px;
+        height: 130px;
+    }
+
+    .product-title {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .price {
+        font-size: 16px;
+    }
+
+    .price span {
+        font-size: 13px;
+    }
+
+    .rating {
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+
+    .btn-cart {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+/* ==========================
+   OIL RANGE SECTION
+========================== */
+
+.oil-range {
+    padding: 20px 60px;
+    background: #f5f5f5;
+}
+
+.oil-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #003d1f;
+    margin-bottom: 20px;
+}
+
+.oil-slider-wrapper {
+    position: relative;
+    max-width: 1400px;
+    margin: auto;
+}
+
+.oil-slider {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding: 5px;
+}
+.oil-scroll-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+.oil-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.oil-card {
+    flex: 0 0 calc(25% - 18px);
+    min-width: 260px;
+    position: relative;
+}
+
+.oil-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #ff6b6b;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 2;
+}
+
+.oil-image {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    display: block;
+}
+
+.oil-name {
+    margin-top: 18px;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.5;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.oil-price {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.oil-price span {
+    font-size: 16px;
+    color: #888;
+    text-decoration: line-through;
+    margin-left: 6px;
+}
+
+.oil-rating {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.oil-cart-btn {
+    width: 100%;
+    background: #004d1a;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Arrows */
+
+.oil-scroll-btn {
+    position: absolute;
+    top: 38%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 3px 12px rgba(0,0,0,.15);
+    cursor: pointer;
+    z-index: 10;
+    font-size: 24px;
+}
+
+.oil-prev {
+    left: -25px;
+}
+
+.oil-next {
+    right: -25px;
+}
+
+/* Tablet */
+
+@media (max-width: 992px) {
+
+    .oil-card {
+        flex: 0 0 calc(50% - 12px);
+    }
+
+    .oil-title {
+        font-size: 28px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .oil-range {
+        padding: 40px 15px;
+    }
+
+    .oil-title {
+        font-size: 24px;
+    }
+
+    .oil-card {
+        flex: 0 0 85%;
+        min-width: 85%;
+    }
+
+    .oil-image {
+        height: 200px;
+    }
+
+    .oil-scroll-btn {
+        display: none;
+    }
+
+    .oil-price {
+        font-size: 22px;
+    }
+
+    .oil-price span {
+        font-size: 15px;
+    }
+}
+.better-why-section{
+    padding: 20px 40px;
+    text-align:center;
+    background:#f5f5f5;
+}
+
+.better-why-heading{
+    font-size:32px;
+    font-weight:700;
+    margin-bottom:50px;
+}
+
+.better-why-container{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:30px;
+}
+
+.better-why-card{
+    width:180px;
+}
+
+.better-why-card img{
+    width:75px;
+    height:75px;
+    object-fit:contain;
+    margin-bottom:15px;
+}
+
+.better-why-card p{
+    font-size:20px;
+    line-height:1.6;
+}
+.better-gallery-section{
+    padding: 30px 20px;
+    text-align:center;
+    background:#f5f5f5;
+}
+
+.better-gallery-title{
+    font-size:32px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.better-gallery-subtitle{
+    font-size:24px;
+    color:#444;
+    margin-bottom:40px;
+}
+
+.better-gallery{
+    display:flex;
+    gap:8px;
+    height:520px;
+    overflow:hidden;
+}
+
+.better-panel{
+    flex:1;
+    border-radius:30px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:all .6s ease;
+    position:relative;
+}
+
+.better-panel img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.better-panel.active{
+    flex:5;
+}
+
+.better-panel:not(.active){
+    flex:1;
+    filter:brightness(60%);
+}
+/* Mobile */
+
+@media (max-width:768px){
+
+    .better-gallery-section{
+        padding:20px 15px;
+    }
+
+    .better-gallery-title{
+        font-size:28px;
+    }
+
+    .better-gallery-subtitle{
+        font-size:18px;
+        margin-bottom:25px;
+    }
+
+    .better-gallery{
+        display:flex;
+        overflow-x:auto;
+        overflow-y:hidden;
+        gap:12px;
+        height:350px;
+
+        scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+    }
+
+    .better-gallery::-webkit-scrollbar{
+        display:none;
+    }
+
+    .better-panel{
+        flex:0 0 100%;
+        min-width:100%;
+        border-radius:20px;
+
+        scroll-snap-align:center;
+
+        filter:none !important;
+    }
+
+    .better-panel.active{
+        flex:0 0 100%;
+    }
+
+    .better-panel img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+    }
+
+    .better-why-container{
+        justify-content:center;
+        gap:25px;
+    }
+
+    .better-why-card{
+        width:45%;
+    }
+
+    .better-why-card img{
+        width:60px;
+        height:60px;
+    }
+
+    .better-why-card p{
+        font-size:16px;
+    }
+}
+/* ===========================
+   MARKETPLACE SECTION
+=========================== */
+
+.marketplace-section{
+    background:#dceceb;
+    padding:20px 40px;
+    text-align:center;
+}
+
+.marketplace-title{
+    font-size:32px;
+    font-weight:700;
+    margin-bottom:5px;
+    color:#000;
+}
+
+.marketplace-subtitle{
+    font-size:28px;
+    color:#333;
+    margin-bottom:40px;
+}
+
+.marketplace-logos{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:40px;
+    max-width:1400px;
+    margin:auto;
+    flex-wrap:wrap;
+}
+
+.marketplace-logo{
+    flex:1;
+    min-width:120px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.marketplace-logo img{
+    max-width:140px;
+    max-height:90px;
+    object-fit:contain;
+    transition:.3s ease;
+}
+
+.marketplace-logo:hover img{
+    transform:scale(1.08);
+}
+@media (max-width:768px){
+
+    .marketplace-section{
+        padding:40px 15px;
+    }
+
+    .marketplace-title{
+        font-size:34px;
+    }
+
+    .marketplace-subtitle{
+        font-size:20px;
+        margin-bottom:30px;
+    }
+
+    .marketplace-logos{
+        gap:25px;
+        justify-content:center;
+    }
+
+    .marketplace-logo{
+        flex:0 0 calc(33.33% - 20px);
+        min-width:90px;
+    }
+
+    .marketplace-logo img{
+        max-width:90px;
+        max-height:60px;
+    }
+}
+.video-shop-section{
+    padding:30px 20px;
+    background:#f5f5f5;
+}
+
+.video-shop-title{
+    text-align:center;
+    font-size:32px;
+    font-weight:700;
+    margin-bottom:40px;
+}
+
+.video-slider{
+    display:flex;
+    gap:18px;
+    overflow-x:auto;
+    scrollbar-width:none;
+    scroll-behavior:smooth;
+}
+
+.video-slider::-webkit-scrollbar{
+    display:none;
+}
+
+.video-item{
+    flex:0 0 270px;
+    height:520px;
+    border-radius:12px;
+    overflow:hidden;
+    position:relative;
+    background:#ddd;
+}
+
+.video-thumb{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.video-play{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:rgba(255,255,255,.9);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    cursor:pointer;
+}
+
+.video-product{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    background:#fff;
+    padding:10px;
+}
+
+.video-product-top{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.video-product-img{
+    width:50px;
+    height:50px;
+    object-fit:cover;
+    border-radius:6px;
+}
+
+.video-product-info{
+    flex:1;
+}
+
+.video-product-info h4{
+    font-size:14px;
+    margin:0;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.video-product-info p{
+    margin:4px 0 0;
+    font-weight:600;
+}
+
+.video-open-btn{
+    width:32px;
+    height:32px;
+    border:none;
+    border-radius:50%;
+    background:#f1f1f1;
+}
+
+.video-cart-row{
+    margin-top:10px;
+    display:flex;
+    gap:8px;
+}
+
+.video-cart-btn{
+    flex:1;
+    background:#000;
+    color:#fff;
+    border:none;
+    height:38px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.video-bag-btn{
+    width:38px;
+    border:none;
+    background:#000;
+    color:#fff;
+}
+.video-scroll-btn:disabled{
+    opacity:0.4;
+    cursor:not-allowed;
+    pointer-events:none;
+}
+@media(max-width:768px){
+
+    .video-item{
+        flex:0 0 240px;
+        height:460px;
+    }
+
+    .video-shop-title{
+        font-size:28px;
+    }
+}
+.oil-review-section{
+    padding:20px;
+    background:#f5f5f5;
+}
+
+.oil-review-title{
+    text-align:center;
+    font-size:32px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.oil-review-subtitle{
+    text-align:center;
+    font-size:24px;
+    color:#444;
+    margin-bottom:50px;
+}
+
+.oil-review-wrapper{
+    position:relative;
+}
+
+.oil-review-slider{
+    display:flex;
+    gap:24px;
+    overflow-x:auto;
+    scroll-behavior:smooth;
+    scrollbar-width:none;
+}
+
+.oil-review-slider::-webkit-scrollbar{
+    display:none;
+}
+
+.oil-review-card{
+    flex:0 0 calc(33.333% - 16px);
+    background:#dff0eb;
+    border-radius:12px;
+    padding:20px;
+    min-height:360px;
+
+    display:flex;
+    flex-direction:column;
+}
+
+.oil-review-stars{
+    color:#d4b100;
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+.oil-review-card h4{
+    font-size:28px;
+    margin-bottom:10px;
+    font-weight:700;
+}
+
+.oil-review-card p{
+    font-size:18px;
+    line-height:1.8;
+    color:#333;
+    flex-grow:1;
+}
+
+.oil-review-user{
+    font-size:28px;
+    font-weight:700;
+    margin-top:20px;
+}
+
+.oil-review-card span{
+    color:#666;
+    font-size:16px;
+}
+
+.oil-review-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:56px;
+    height:56px;
+    border:none;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+    cursor:pointer;
+    z-index:10;
+    font-size:22px;
+}
+
+.oil-review-prev{
+    left:-15px;
+}
+
+.oil-review-next{
+    right:-15px;
+}
+
+.oil-review-btn:disabled{
+    opacity:.4;
+    cursor:not-allowed;
+}
+
+/* Tablet */
+
+@media(max-width:992px){
+
+    .oil-review-card{
+        flex:0 0 calc(50% - 12px);
+    }
+
+    .oil-review-title{
+        font-size:40px;
+    }
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .oil-review-card{
+        flex:0 0 90%;
+        padding:25px;
+    }
+
+    .oil-review-title{
+        font-size:32px;
+    }
+
+    .oil-review-subtitle{
+        font-size:18px;
+    }
+
+    .oil-review-card h4{
+        font-size:22px;
+    }
+
+    .oil-review-card p{
+        font-size:16px;
+    }
+
+    .oil-review-user{
+        font-size:22px;
+    }
+}
+.whatsapp-bg {
+  background-color: #003d1f;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+.whatsapp-card {
+  border-radius: 24px;
+  padding: 2rem;
+  color: #fff;
+}
+
+.headline {
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.subtext {
+  font-size: 18px;
+  margin-top: 10px;
+  font-weight: 300;
+}
+
+@media (min-width: 768px) {
+  .headline {
+    font-size: 30px;
+  }
+
+  .subtext {
+    font-size: 20px;
+  }
+}
+.banner-section a {
+    display: block;
+    cursor: pointer;
+}
+
+.banner-section img {
+    display: block;
+    width: 100%;
+}
+.better-panel a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.better-panel a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.banner-img{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+}
+
+@media(max-width:768px){
+    .banner-img{
+        height:220px;
+    }
+}
+</style>
+
+<!-- Banner -->
+<section class="banner-section">
+
+    <div id="bannerCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <a href="/all-products">
+                    <img src="/files/oilbanner1.png" class="d-block w-100 banner-img" alt="Banner 1">
+                </a>
+            </div>
+
+            <div class="carousel-item">
+                <a href="/all-products">
+                    <img src="/files/oilbanner2.png" class="d-block w-100 banner-img" alt="Banner 2">
+                </a>
+            </div>
+
+            <div class="carousel-item">
+                <a href="/all-products">
+                    <img src="/files/oilbanner3.png" class="d-block w-100 banner-img" alt="Banner 3">
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Previous -->
+        <button class="carousel-control-prev" type="button"
+                data-bs-target="#bannerCarousel"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <!-- Next -->
+        <button class="carousel-control-next" type="button"
+                data-bs-target="#bannerCarousel"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="2"></button>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- 6 Round Cards -->
+<section class="category-section">
+
+    <div class="category-card">
+        <img src="/files/mustard_oil.png" alt="">
+        <p>Groundnut Oil</p>
+    </div>
+
+    <div class="category-card">
+        <img src="/files/oilbottle2.png" alt="">
+        <p>Mustard Oil</p>
+    </div>
+
+    <div class="category-card">
+        <img src="/files/mustard_oil.png" alt="">
+        <p>Virgin Coconut Oil</p>
+    </div>
+
+    <div class="category-card">
+        <img src="/files/oilbottle2.png" alt="">
+        <p>Olive Oil</p>
+    </div>
+
+    <div class="category-card">
+        <img src="/files/mustard_oil.png" alt="">
+        <p>Sesame Oil</p>
+    </div>
+
+    <div class="category-card">
+        <img src="/files/oilbottle2.png" alt="">
+        <p>Sunflower Oil</p>
+    </div>
+
+</section>
+<section class="bestseller-section">
+
+    <p class="bestseller-title">All time bestsellers</p>
+    <p class="bestseller-sub">Savour the favourites</p>
+
+    <div class="slider-container">
+        <div class="scroll-wrapper" id="scrollContainer">
+            <div class="product-row">
+
+                <!-- CARD 1 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="/files/sunflower.png">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-title">
+Tata Simply Better Groundnut (Peanut) Oil 1L | 100% Pure, Unrefined & Cold-pressed | Hexane-Free                        </div>
+                        <div class="price">₹365 <span>₹430</span></div>
+                        <div class="rating">★ 4.9</div>
+                        <button class="btn-cart">Add to cart</button>
+                    </div>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="/files/groundnut.png">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-title">
+Tata Simply Better Mustard Oil 1L | 100% Pure, Unrefined & Cold-pressed | Hexane-Free                        </div>
+                        <div class="price">₹275 <span>₹325</span></div>
+                        <div class="rating">★ 4.9</div>
+                        <button class="btn-cart">Add to cart</button>
+                    </div>
+                </div>
+
+  <div class="product-card">
+                    <div class="product-img">
+                        <img src="/files/coconut_oil.png">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-title">
+                            Tata Simply Better Mustard Oil 1L | 100% Pure, Unrefined & Cold-pressed | Hexane-Free
+                        </div>
+                        <div class="price">₹275 <span>₹325</span></div>
+                        <div class="rating">★ 4.9</div>
+                        <button class="btn-cart">Add to cart</button>
+                    </div>
+                </div>
+                  <div class="product-card">
+                    <div class="product-img">
+                        <img src="/files/oilbottle2.png">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-title">
+                            Tata Simply Better Mustard Oil 1L | 100% Pure, Unrefined & Cold-pressed | Hexane-Free
+                        </div>
+                        <div class="price">₹275 <span>₹325</span></div>
+                        <div class="rating">★ 4.9</div>
+                        <button class="btn-cart">Add to cart</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- DOTS -->
+    <div class="dots" id="dots">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</section>
+<section class="oil-range">
+
+    <p class="oil-title">Shop our range</p>
+
+    <div class="oil-slider-wrapper">
+
+        <button class="oil-scroll-btn oil-prev" onclick="oilScroll(-1)">
+            &#10094;
+        </button>
+
+        <div class="oil-slider" id="oilSlider">
+            <!-- Products will load here -->
+        </div>
+
+        <button class="oil-scroll-btn oil-next" onclick="oilScroll(1)">
+            &#10095;
+        </button>
+
+    </div>
+
+</section>
+<section class="better-why-section">
+
+    <p class="better-why-heading">
+        Why Us?
+    </p>
+
+    <div class="better-why-container">
+
+        <div class="better-why-card">
+            <img src="/files/fresh-food.png">
+            <p>Quality<br>Ingredients</p>
+        </div>
+
+        <div class="better-why-card">
+            <img src="/files/fresh-food.png">
+            <p>'Better' Nutrition<br>Everyday</p>
+        </div>
+
+        <div class="better-why-card">
+            <img src="/files/fresh-food.png">
+            <p>Preservative<br>Free Foods</p>
+        </div>
+
+        <div class="better-why-card">
+            <img src="/files/fresh-food.png">
+            <p>Responsible<br>Practices</p>
+        </div>
+
+        <div class="better-why-card">
+            <img src="/files/fresh-food.png">
+            <p>Responsible<br>Practices</p>
+        </div>
+
+    </div>
+
+</section>
+<section class="better-gallery-section">
+
+    <p class="better-gallery-title">
+        Elevate your culinary experience
+    </p>
+
+    <p class="better-gallery-subtitle">
+        Why choose 'Better'?
+    </p>
+
+    <div class="better-gallery">
+
+       <div class="better-panel active">
+    <a href="/all-products">
+        <img src="/files/banner_img2.png" alt="Banner">
+    </a>
+</div>
+
+        <div class="better-panel">
+            <a href="/all-products">
+                <img src="/files/banner_img3.png" alt="Banner">
+            </a>
+        </div>
+
+        <div class="better-panel">
+            <a href="/all-products">
+                <img src="/files/banner_img1.png" alt="Banner">
+            </a>
+        </div>
+
+        <div class="better-panel">
+            <a href="/all-products">
+                <img src="/files/banner11.jpg" alt="Banner">
+            </a>
+        </div>
+
+        <div class="better-panel">
+            <a href="/all-products">
+                <img src="/files/banner1.jpg" alt="Banner">
+            </a>
+        </div>
+
+    </div>
+
+</section>
+<section class="marketplace-section">
+
+    <p class="marketplace-title">You can</p>
+    <p class="marketplace-subtitle">Find us at</p>
+
+    <div class="marketplace-logos">
+
+        <div class="marketplace-logo">
+            <img src="/files/zrpto_logo.png" alt="Zepto">
+        </div>
+
+        <div class="marketplace-logo">
+            <img src="/files/shopping .png" alt="Blinkit">
+        </div>
+
+        <div class="marketplace-logo">
+            <img src="/files/insta_logo.png" alt="Instamart">
+        </div>
+
+        <div class="marketplace-logo">
+            <img src="/files/amazon_logo.png" alt="Amazon">
+        </div>
+
+        <div class="marketplace-logo">
+            <img src="/files/shopping .png" alt="Flipkart">
+        </div>
+
+        <div class="marketplace-logo">
+            <img src="/files/flipcart.png" alt="Mango">
+        </div>
+
+        <div class="marketplace-logo">
+            <img src="/files/shopping .png" alt="BigBasket">
+        </div>
+
+    </div>
+
+</section>
+<section class="video-shop-section">
+
+    <p class="video-shop-title">
+        Shop By Videos
+    </p>
+
+    <div class="video-slider-wrapper">
+
+        <div class="video-slider" id="videoSlider">
+
+            <!-- CARD 1 -->
+            <div class="video-item">
+
+                <img src="/files/coconut_oil.png" class="video-thumb">
+
+                <div class="video-play">▶</div>
+
+                <div class="video-product">
+
+                    <div class="video-product-top">
+
+                        <img src="/files/mustard_oil.png"
+                            class="video-product-img">
+
+                        <div class="video-product-info">
+                            <h4>Millet Semiya</h4>
+                            <p>₹ 371.00</p>
+                        </div>
+
+                        <button class="video-open-btn">
+                            ↗
+                        </button>
+
+                    </div>
+
+                    <div class="video-cart-row">
+
+                        <button class="video-cart-btn">
+                            ADD TO CART
+                        </button>
+
+                        <button class="video-bag-btn">
+                            🛒
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="video-item">
+
+                <img src="/files/sunflower.png" class="video-thumb">
+
+                <div class="video-play">▶</div>
+
+                <div class="video-product">
+
+                    <div class="video-product-top">
+
+                        <img src="/files/oilbottle2.png"
+                            class="video-product-img">
+
+                        <div class="video-product-info">
+                            <h4>Finger Millet Noodles</h4>
+                            <p>₹ 153.00</p>
+                        </div>
+
+                        <button class="video-open-btn">
+                            ↗
+                        </button>
+
+                    </div>
+
+                    <div class="video-cart-row">
+
+                        <button class="video-cart-btn">
+                            ADD TO CART
+                        </button>
+
+                        <button class="video-bag-btn">
+                            🛒
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="video-item">
+
+                <img src="/files/groundnut.png" class="video-thumb">
+
+                <div class="video-play">▶</div>
+
+                <div class="video-product">
+
+                    <div class="video-product-top">
+
+                        <img src="/files/mustard_oil.png"
+                            class="video-product-img">
+
+                        <div class="video-product-info">
+                            <h4>Peanut Butter</h4>
+                            <p>₹ 260.00</p>
+                        </div>
+
+                        <button class="video-open-btn">
+                            ↗
+                        </button>
+
+                    </div>
+
+                    <div class="video-cart-row">
+
+                        <button class="video-cart-btn">
+                            ADD TO CART
+                        </button>
+
+                        <button class="video-bag-btn">
+                            🛒
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD 4 -->
+            <div class="video-item">
+
+                <img src="/files/coconut_oil.png" class="video-thumb">
+
+                <div class="video-play">▶</div>
+
+                <div class="video-product">
+
+                    <div class="video-product-top">
+
+                        <img src="/files/oilbottle2.png"
+                            class="video-product-img">
+
+                        <div class="video-product-info">
+                            <h4>Groundnut Oil</h4>
+                            <p>₹ 410.00</p>
+                        </div>
+
+                        <button class="video-open-btn">
+                            ↗
+                        </button>
+
+                    </div>
+
+                    <div class="video-cart-row">
+
+                        <button class="video-cart-btn">
+                            ADD TO CART
+                        </button>
+
+                        <button class="video-bag-btn">
+                            🛒
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+             <div class="video-item">
+
+                <img src="/files/sunflower.png" class="video-thumb">
+
+                <div class="video-play">▶</div>
+
+                <div class="video-product">
+
+                    <div class="video-product-top">
+
+                        <img src="/files/oilbottle2.png"
+                            class="video-product-img">
+
+                        <div class="video-product-info">
+                            <h4>Groundnut Oil</h4>
+                            <p>₹ 410.00</p>
+                        </div>
+
+                        <button class="video-open-btn">
+                            ↗
+                        </button>
+
+                    </div>
+
+                    <div class="video-cart-row">
+
+                        <button class="video-cart-btn">
+                            ADD TO CART
+                        </button>
+
+                        <button class="video-bag-btn">
+                            🛒
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+             <div class="video-item">
+
+                <img src="/files/groundnut.png" class="video-thumb">
+
+                <div class="video-play">▶</div>
+
+                <div class="video-product">
+
+                    <div class="video-product-top">
+
+                        <img src="/files/oilbottle2.png"
+                            class="video-product-img">
+
+                        <div class="video-product-info">
+                            <h4>Groundnut Oil</h4>
+                            <p>₹ 410.00</p>
+                        </div>
+
+                        <button class="video-open-btn">
+                            ↗
+                        </button>
+
+                    </div>
+
+                    <div class="video-cart-row">
+
+                        <button class="video-cart-btn">
+                            ADD TO CART
+                        </button>
+
+                        <button class="video-bag-btn">
+                            🛒
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+       <button
+    class="video-scroll-btn video-prev"
+    id="videoPrev"
+    onclick="scrollVideos(-1)">
+    &#10094;
+</button>
+
+<button
+    class="video-scroll-btn video-next"
+    id="videoNext"
+    onclick="scrollVideos(1)">
+    &#10095;
+</button>
+
+    </div>
+
+</section>
+<section class="oil-review-section">
+
+    <p class="oil-review-title">Customer reviews</p>
+    <p class="oil-review-subtitle">Every flavour tells a tale</p>
+
+    <div class="oil-review-wrapper">
+
+        <button
+            class="oil-review-btn oil-review-prev"
+            id="oilReviewPrev"
+            onclick="oilReviewScroll(-1)">
+            &#10094;
+        </button>
+
+        <div class="oil-review-slider" id="oilReviewSlider">
+
+            <!-- Review 1 -->
+            <div class="oil-review-card">
+
+                <div class="oil-review-stars">
+                    ★ ★ ★ ★ ★
+                </div>
+
+                <h4>Must buy.</h4>
+
+                <p>
+                    This is very good oil high quality.
+                    <br><br>
+                    Using it for hair and skin also as
+                    it's very effective.
+                </p>
+
+                <div class="oil-review-user">
+                    Ritika
+                </div>
+
+                <span>Coconut Oil</span>
+
+            </div>
+
+            <!-- Review 2 -->
+            <div class="oil-review-card">
+
+                <div class="oil-review-stars">
+                    ★ ★ ★ ★ ★
+                </div>
+
+                <h4>
+                    Multipurpose 100% Pure Cold Pressed Coconut oil.
+                </h4>
+
+                <p>
+                    This is a high quality product.
+                    The aroma is heavenly and adds
+                    great flavour to everyday cooking.
+                </p>
+
+                <div class="oil-review-user">
+                    VKV
+                </div>
+
+                <span>Coconut Oil</span>
+
+            </div>
+
+            <!-- Review 3 -->
+            <div class="oil-review-card">
+
+                <div class="oil-review-stars">
+                    ★ ★ ★ ★ ★
+                </div>
+
+                <h4>Smells like fresh coconuts.</h4>
+
+                <p>
+                    Very refreshing and
+                    good quality oil.
+                </p>
+
+                <div class="oil-review-user">
+                    Vanshita Bachani
+                </div>
+
+                <span>Coconut Oil</span>
+
+            </div>
+
+            <!-- Review 4 -->
+            <div class="oil-review-card">
+
+                <div class="oil-review-stars">
+                    ★ ★ ★ ★ ★
+                </div>
+
+                <h4>Excellent Product</h4>
+
+                <p>
+                    Great taste and premium quality.
+                    Will definitely purchase again.
+                </p>
+
+                <div class="oil-review-user">
+                    Priya
+                </div>
+
+                <span>Groundnut Oil</span>
+
+            </div>
+
+        </div>
+
+        <button
+            class="oil-review-btn oil-review-next"
+            id="oilReviewNext"
+            onclick="oilReviewScroll(1)">
+            &#10095;
+        </button>
+
+    </div>
+
+</section>
+ <div class="whatsapp-section" style="padding: 40px 20px; background-color: #f5f5f5;">
+
+    <a
+      href="https://wa.me/9876543210"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="no-underline w-100"
+    >
+
+      <div class="whatsapp-bg whatsapp-card d-flex flex-column flex-md-row align-items-center justify-content-between gap-4 gap-md-5 mx-auto"
+           style="max-width: 700px;">
+
+        <!-- Text -->
+        <div class="text-center text-md-start">
+          <div class="headline">
+            Can't find what you're looking for?
+          </div>
+          <div class="subtext">
+            We are here to help. Say 'Hi' on WhatsApp
+          </div>
+        </div>
+
+        <!-- Logo -->
+        <div>
+          <img
+            src="/files/whatsapp.png"
+            alt="WhatsApp"
+            class="img-fluid"
+            style="height: 80px;"
+          />
+        </div>
+
+      </div>
+
+    </a>
+
+  </div>
+<script>
+const container = document.getElementById('scrollContainer');
+const dots = document.querySelectorAll('#dots span');
+
+function updateDots() {
+    const cardWidth = container.querySelector('.product-card').offsetWidth + 20;
+    const index = Math.round(container.scrollLeft / cardWidth);
+
+    dots.forEach(dot => dot.classList.remove('active'));
+    if (dots[index]) dots[index].classList.add('active');
+}
+
+container.addEventListener('scroll', updateDots);
+
+const slider = document.getElementById("oilSlider");
+const prevBtn = document.querySelector(".oil-prev");
+const nextBtn = document.querySelector(".oil-next");
+
+function updateOilButtons() {
+
+    const maxScroll =
+        slider.scrollWidth - slider.clientWidth;
+
+    // Disable Previous at start
+    prevBtn.disabled = slider.scrollLeft <= 0;
+
+    // Disable Next at end
+    nextBtn.disabled =
+        slider.scrollLeft >= maxScroll - 5;
+}
+
+function oilScroll(direction) {
+
+    const card = slider.querySelector(".oil-card");
+
+    if (!card) return;
+
+    slider.scrollBy({
+        left: direction * (card.offsetWidth + 24),
+        behavior: "smooth"
+    });
+
+    setTimeout(updateOilButtons, 400);
+}
+
+slider.addEventListener("scroll", updateOilButtons);
+
+window.addEventListener("load", updateOilButtons);
+
+const panels =
+document.querySelectorAll('.better-panel');
+
+panels.forEach(panel => {
+
+    panel.addEventListener('mouseenter', () => {
+
+        panels.forEach(p =>
+            p.classList.remove('active')
+        );
+
+        panel.classList.add('active');
+
+    });
+
+});
+
+const videoSlider = document.getElementById("videoSlider");
+const videoPrev = document.getElementById("videoPrev");
+const videoNext = document.getElementById("videoNext");
+
+function scrollVideos(direction){
+
+    const card = videoSlider.querySelector(".video-item");
+
+    if(!card) return;
+
+    videoSlider.scrollBy({
+        left: direction * (card.offsetWidth + 18),
+        behavior: "smooth"
+    });
+}
+
+function updateVideoButtons(){
+
+    const scrollLeft = videoSlider.scrollLeft;
+    const maxScroll =
+        videoSlider.scrollWidth - videoSlider.clientWidth;
+
+    // Left button
+    videoPrev.disabled = scrollLeft <= 5;
+
+    // Right button
+    videoNext.disabled = scrollLeft >= maxScroll - 5;
+}
+
+// Update while scrolling
+videoSlider.addEventListener(
+    "scroll",
+    updateVideoButtons
+);
+
+// Initial state
+window.addEventListener(
+    "load",
+    updateVideoButtons
+);
+
+// Update on resize
+window.addEventListener(
+    "resize",
+    updateVideoButtons
+);
+
+const oilReviewSlider =
+    document.getElementById("oilReviewSlider");
+
+const oilReviewPrev =
+    document.getElementById("oilReviewPrev");
+
+const oilReviewNext =
+    document.getElementById("oilReviewNext");
+
+function oilReviewScroll(direction){
+
+    const card =
+        oilReviewSlider.querySelector(".oil-review-card");
+
+    if(!card) return;
+
+    oilReviewSlider.scrollBy({
+        left: direction * (card.offsetWidth + 24),
+        behavior: "smooth"
+    });
+}
+
+function updateReviewButtons(){
+
+    const maxScroll =
+        oilReviewSlider.scrollWidth -
+        oilReviewSlider.clientWidth;
+
+    oilReviewPrev.disabled =
+        oilReviewSlider.scrollLeft <= 5;
+
+    oilReviewNext.disabled =
+        oilReviewSlider.scrollLeft >= maxScroll - 5;
+}
+
+oilReviewSlider.addEventListener(
+    "scroll",
+    updateReviewButtons
+);
+
+window.addEventListener(
+    "load",
+    updateReviewButtons
+);
+
+window.addEventListener(
+    "resize",
+    updateReviewButtons
+);
+
+document.addEventListener("DOMContentLoaded", function () {
+    const carousel = new bootstrap.Carousel(document.getElementById("bannerCarousel"), {
+        interval: 3000,
+        ride: "carousel",
+        wrap: true,
+        pause: false,
+        touch: true
+    });
+});
+
+
+frappe.ready(function () {
+    loadProducts();
+});
+
+// Remove HTML tags from description
+function stripHtml(html) {
+    let div = document.createElement("div");
+    div.innerHTML = html || "";
+    return div.textContent || div.innerText || "";
+}
+
+function loadProducts() {
+
+    frappe.call({
+        method: "frappe.desk.reportview.get",
+        args: {
+            doctype: "Item",
+            fields: JSON.stringify([
+                "name",
+                "item_name",
+                "image",
+                "valuation_rate",
+                "description"
+            ]),
+            filters: JSON.stringify([
+                ["Item", "disabled", "=", 0]
+            ]),
+            order_by: "creation desc",
+            page_length: 20
+        },
+        callback: function (r) {
+
+            if (!r.message) return;
+
+            const keys = r.message.keys;
+            const values = r.message.values;
+
+            let html = "";
+
+            values.forEach(function (row) {
+
+                let item = {};
+
+                keys.forEach(function (key, index) {
+                    item[key] = row[index];
+                });
+
+                // Convert HTML description to plain text
+                let description = stripHtml(item.description || "");
+
+                // Limit description length
+                if (description.length > 100) {
+                    description = description.substring(0, 100) + "...";
+                }
+
+                html += `
+                    <div class="oil-card">
+
+                        <span class="oil-badge">Fresh</span>
+
+                        <img src="${item.image || '/assets/frappe/images/ui/no-image.svg'}"
+                             class="oil-image"
+                             alt="${item.item_name}">
+
+                        <h5 class="oil-name">
+                            ${item.item_name}
+                        </h5>
+ <p class="oil-description">
+                            ${description}
+                        </p>
+                        <div class="oil-price">
+                            ₹${item.valuation_rate || 0}
+                        </div>
+
+                       
+
+                        <div class="oil-rating">
+                            ★ 4.8
+                        </div>
+
+                        <button class="oil-cart-btn"
+                                onclick="addToCart('${item.name}')">
+                            Add to Cart
+                        </button>
+
+                    </div>
+                `;
+            });
+
+            document.getElementById("oilSlider").innerHTML = html;
+
+        }
+    });
+
+}
+
+function addToCart(itemCode) {
+
+    frappe.call({
+        method: "erpnext.e_commerce.shopping_cart.cart.update_cart",
+        args: {
+            item_code: itemCode,
+            qty: 1
+        },
+        callback: function () {
+
+            frappe.show_alert({
+                message: "Added to Cart",
+                indicator: "green"
+            });
+
+        }
+    });
+
+}
+
+function oilScroll(direction) {
+
+    const slider = document.getElementById("oilSlider");
+
+    slider.scrollBy({
+        left: direction * 320,
+        behavior: "smooth"
+    });
+
+}
+
+</script>
+
