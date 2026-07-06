@@ -4,7 +4,7 @@
 <style>
 
 .blog-container{
-    max-width:1000px;
+    max-width:1200px;
     margin:40px auto;
 }
 
@@ -99,9 +99,7 @@ frappe.ready(function () {
     const blogName = params.get("name");
 
     if (!blogUrl && !blogName) {
-
         $("#loading").html("<h3>Blog Not Found</h3>");
-
         return;
     }
 
@@ -122,9 +120,6 @@ function formatDate(date) {
 }
 
 function loadBlog(blogUrl, blogName) {
-
-    console.log("URL :", blogUrl);
-    console.log("NAME:", blogName);
 
     frappe.call({
 
@@ -152,15 +147,17 @@ function loadBlog(blogUrl, blogName) {
 
             $("#blog-details").show();
 
-            // Title
+            // Main Title
             $("#blog-title").text(
                 blog.description_heading_1 || blog.name
             );
 
             // Date
-            $("#blog-date").html(
-                "📅 " + formatDate(blog.blog_date || blog.creation)
-            );
+            if (blog.blog_date) {
+                $("#blog-date").html("📅 " + formatDate(blog.blog_date));
+            } else {
+                $("#blog-date").hide();
+            }
 
             // Image
             $("#blog-image").attr(
@@ -170,10 +167,20 @@ function loadBlog(blogUrl, blogName) {
                 "/assets/frappe/images/ui/no-image.svg"
             );
 
-            // Content
+            // Blog Content
             let html = "";
 
-            for (let i = 1; i <= 4; i++) {
+            // First Description (without repeating heading)
+            if (blog.description_1) {
+                html += `
+                    <div class="mb-4">
+                        ${blog.description_1}
+                    </div>
+                `;
+            }
+
+            // Remaining Sections
+            for (let i = 2; i <= 4; i++) {
 
                 const heading = blog["description_heading_" + i];
                 const desc = blog["description_" + i];
@@ -191,9 +198,9 @@ function loadBlog(blogUrl, blogName) {
                         </div>
                     `;
                 }
-
             }
 
+            // Custom HTML
             if (blog.custom_html) {
                 html += `
                     <div class="mt-4">
@@ -204,25 +211,23 @@ function loadBlog(blogUrl, blogName) {
 
             $("#blog-content").html(html);
 
-            // SEO
+            // SEO Title
             if (blog.meta_title) {
                 document.title = blog.meta_title;
             }
 
+            // SEO Description
             if (blog.meta_description) {
 
                 let meta = document.querySelector('meta[name="description"]');
 
                 if (!meta) {
-
                     meta = document.createElement("meta");
                     meta.name = "description";
                     document.head.appendChild(meta);
-
                 }
 
                 meta.content = blog.meta_description;
-
             }
 
         },
