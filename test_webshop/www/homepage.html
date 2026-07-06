@@ -2034,43 +2034,17 @@ function stripHtml(html) {
 function loadProducts() {
 
     frappe.call({
-        method: "frappe.desk.reportview.get",
-        args: {
-            doctype: "Item",
-            fields: JSON.stringify([
-                "name",
-                "item_name",
-                "image",
-                "valuation_rate",
-                "description"
-            ]),
-            filters: JSON.stringify([
-                ["Item", "disabled", "=", 0]
-            ]),
-            order_by: "creation desc",
-            page_length: 20
-        },
-        callback: function (r) {
+        method: "test_webshop.api.products.get_products",
+        callback: function(r) {
 
             if (!r.message) return;
 
-            const keys = r.message.keys;
-            const values = r.message.values;
-
             let html = "";
 
-            values.forEach(function (row) {
+            r.message.forEach(function(item) {
 
-                let item = {};
-
-                keys.forEach(function (key, index) {
-                    item[key] = row[index];
-                });
-
-                // Convert HTML description to plain text
                 let description = stripHtml(item.description || "");
 
-                // Limit description length
                 if (description.length > 100) {
                     description = description.substring(0, 100) + "...";
                 }
@@ -2087,14 +2061,14 @@ function loadProducts() {
                         <h5 class="oil-name">
                             ${item.item_name}
                         </h5>
- <p class="oil-description">
+
+                        <p class="oil-description">
                             ${description}
                         </p>
-                        <div class="oil-price">
-                            ₹${item.valuation_rate || 0}
-                        </div>
 
-                       
+                        <div class="oil-price">
+                            ₹${item.price || 0}
+                        </div>
 
                         <div class="oil-rating">
                             ★ 4.8
@@ -2110,39 +2084,7 @@ function loadProducts() {
             });
 
             document.getElementById("oilSlider").innerHTML = html;
-
         }
-    });
-
-}
-
-function addToCart(itemCode) {
-
-    frappe.call({
-        method: "erpnext.e_commerce.shopping_cart.cart.update_cart",
-        args: {
-            item_code: itemCode,
-            qty: 1
-        },
-        callback: function () {
-
-            frappe.show_alert({
-                message: "Added to Cart",
-                indicator: "green"
-            });
-
-        }
-    });
-
-}
-
-function oilScroll(direction) {
-
-    const slider = document.getElementById("oilSlider");
-
-    slider.scrollBy({
-        left: direction * 320,
-        behavior: "smooth"
     });
 
 }
