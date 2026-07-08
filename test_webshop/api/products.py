@@ -1,5 +1,6 @@
 import frappe
 
+
 @frappe.whitelist(allow_guest=True)
 def get_products():
 
@@ -20,6 +21,43 @@ def get_products():
     )
 
     for item in items:
+
+        price = frappe.db.get_value(
+            "Item Price",
+            {
+                "item_code": item["name"],
+                "price_list": "Standard Selling",
+                "selling": 1
+            },
+            "price_list_rate"
+        )
+
+        item["price"] = price or 0
+
+    return items
+
+
+@frappe.whitelist(allow_guest=True)
+def get_bestsellers():
+
+    items = frappe.get_all(
+        "Item",
+        filters={
+            "disabled": 0,
+            "has_variants": 0,
+            "bestsellers": 1      # Replace with your checkbox fieldname if different
+        },
+        fields=[
+            "name",
+            "item_name",
+            "image",
+            "description"
+        ],
+        order_by="creation desc"
+    )
+
+    for item in items:
+
         price = frappe.db.get_value(
             "Item Price",
             {

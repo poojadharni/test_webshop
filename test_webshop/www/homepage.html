@@ -4,6 +4,22 @@
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
     rel="stylesheet"
   />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        new bootstrap.Carousel(
+            document.getElementById("bannerCarousel"),
+            {
+                interval: 3000,
+                ride: "carousel",
+                wrap: true,
+                pause: false,
+                touch: true
+            }
+        );
+    });
+</script>
 <style>
 html,
 body {
@@ -534,6 +550,8 @@ body {
     font-size:32px;
     font-weight:700;
     margin-bottom:50px;
+        color: #003d1f;
+
 }
 
 .better-why-container{
@@ -570,6 +588,8 @@ body {
     font-size:32px;
     font-weight:700;
     margin-bottom:10px;
+        color: #003d1f;
+
 }
 
 .better-gallery-subtitle{
@@ -619,6 +639,8 @@ body {
 
     .better-gallery-title{
         font-size:28px;
+            color: #003d1f;
+
     }
 
     .better-gallery-subtitle{
@@ -771,6 +793,7 @@ body {
     font-size:32px;
     font-weight:700;
     margin-bottom:40px;
+    color:#003d1f;
 }
 
 .video-slider{
@@ -899,6 +922,7 @@ body {
     font-size:32px;
     font-weight:700;
     margin-bottom:10px;
+    color:#003d1f;
 }
 
 .oil-review-subtitle{
@@ -942,22 +966,21 @@ body {
 }
 
 .oil-review-card h4{
-    font-size:28px;
+    font-size:20px;
     margin-bottom:10px;
     font-weight:700;
 }
 
 .oil-review-card p{
-    font-size:18px;
+    font-size:16px;
     line-height:1.8;
     color:#333;
     flex-grow:1;
 }
 
 .oil-review-user{
-    font-size:28px;
+    font-size:20px;
     font-weight:700;
-    margin-top:20px;
 }
 
 .oil-review-card span{
@@ -1002,7 +1025,7 @@ body {
     }
 
     .oil-review-title{
-        font-size:40px;
+        font-size:32px;
     }
 }
 
@@ -1016,7 +1039,7 @@ body {
     }
 
     .oil-review-title{
-        font-size:32px;
+        font-size:28px;
     }
 
     .oil-review-subtitle{
@@ -1024,7 +1047,7 @@ body {
     }
 
     .oil-review-card h4{
-        font-size:22px;
+        font-size:20px;
     }
 
     .oil-review-card p{
@@ -1032,7 +1055,7 @@ body {
     }
 
     .oil-review-user{
-        font-size:22px;
+        font-size:16px;
     }
 }
 .whatsapp-bg {
@@ -1195,66 +1218,16 @@ body {
     <p class="bestseller-sub">Savour the favourites</p>
 
     <div class="slider-container">
+
         <div class="scroll-wrapper" id="scrollContainer">
-            <div class="product-row">
 
-                <!-- CARD 1 -->
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="/files/sunflower.png">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-title">
-Tata Simply Better Groundnut (Peanut) Oil 1L | 100% Pure, Unrefined & Cold-pressed | Hexane-Free                        </div>
-                        <div class="price">₹365 <span>₹430</span></div>
-                        <div class="rating">★ 4.9</div>
-                        <button class="btn-cart">Add to cart</button>
-                    </div>
-                </div>
-
-                <!-- CARD 2 -->
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="/files/groundnut.png">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-title">
-Tata Simply Better Mustard Oil 1L | 100% Pure, Unrefined & Cold-pressed | Hexane-Free                        </div>
-                        <div class="price">₹275 <span>₹325</span></div>
-                        <div class="rating">★ 4.9</div>
-                        <button class="btn-cart">Add to cart</button>
-                    </div>
-                </div>
-
-  <div class="product-card">
-                    <div class="product-img">
-                        <img src="/files/coconut_oil.png">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-title">
-                            Tata Simply Better Mustard Oil 1L | 100% Pure, Unrefined & Cold-pressed | Hexane-Free
-                        </div>
-                        <div class="price">₹275 <span>₹325</span></div>
-                        <div class="rating">★ 4.9</div>
-                        <button class="btn-cart">Add to cart</button>
-                    </div>
-                </div>
-                  <div class="product-card">
-                    <div class="product-img">
-                        <img src="/files/oilbottle2.png">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-title">
-                            Tata Simply Better Mustard Oil 1L | 100% Pure, Unrefined & Cold-pressed | Hexane-Free
-                        </div>
-                        <div class="price">₹275 <span>₹325</span></div>
-                        <div class="rating">★ 4.9</div>
-                        <button class="btn-cart">Add to cart</button>
-                    </div>
-                </div>
+            <!-- Products will load here -->
+            <div class="product-row" id="bestSellerProducts">
 
             </div>
+
         </div>
+
     </div>
 
     <!-- DOTS -->
@@ -1369,7 +1342,7 @@ Tata Simply Better Mustard Oil 1L | 100% Pure, Unrefined & Cold-pressed | Hexane
 </section>
 <section class="marketplace-section">
 
-    <p class="marketplace-title">You can</p>
+<p class="marketplace-title" style="color:#003d1f;">You can</p>
     <p class="marketplace-subtitle">Find us at</p>
 
     <div class="marketplace-logos">
@@ -1455,7 +1428,7 @@ Tata Simply Better Mustard Oil 1L | 100% Pure, Unrefined & Cold-pressed | Hexane
                     ★ ★ ★ ★ ★
                 </div>
 
-                <h4>Must buy.</h4>
+                <h5>Must buy.</h5>
 
                 <p>
                     This is very good oil high quality.
@@ -1479,9 +1452,9 @@ Tata Simply Better Mustard Oil 1L | 100% Pure, Unrefined & Cold-pressed | Hexane
                     ★ ★ ★ ★ ★
                 </div>
 
-                <h4>
+                <h5>
                     Multipurpose 100% Pure Cold Pressed Coconut oil.
-                </h4>
+                </h5>
 
                 <p>
                     This is a high quality product.
@@ -1504,7 +1477,7 @@ Tata Simply Better Mustard Oil 1L | 100% Pure, Unrefined & Cold-pressed | Hexane
                     ★ ★ ★ ★ ★
                 </div>
 
-                <h4>Smells like fresh coconuts.</h4>
+                <h5>Smells like fresh coconuts.</h5>
 
                 <p>
                     Very refreshing and
@@ -1775,17 +1748,40 @@ function stripHtml(html) {
     return div.textContent || div.innerText || "";
 }
 
+frappe.ready(function () {
+    loadProducts();
+});
+
+// Remove HTML tags
+function stripHtml(html) {
+    let div = document.createElement("div");
+    div.innerHTML = html || "";
+    return div.textContent || div.innerText || "";
+}
+
+frappe.ready(function () {
+    loadProducts();
+});
+
+// Remove HTML tags
+function stripHtml(html) {
+    let div = document.createElement("div");
+    div.innerHTML = html || "";
+    return div.textContent || div.innerText || "";
+}
+
+// Load Products
 function loadProducts() {
 
     frappe.call({
         method: "test_webshop.api.products.get_products",
-        callback: function(r) {
+        callback: function (r) {
 
             if (!r.message) return;
 
             let html = "";
 
-            r.message.forEach(function(item) {
+            r.message.forEach(function (item) {
 
                 let description = stripHtml(item.description || "");
 
@@ -1802,13 +1798,9 @@ function loadProducts() {
                              class="oil-image"
                              alt="${item.item_name}">
 
-                        <h5 class="oil-name">
-                            ${item.item_name}
-                        </h5>
+                        <h5 class="oil-name">${item.item_name}</h5>
 
-                        <p class="oil-description">
-                            ${description}
-                        </p>
+                        <p class="oil-description">${description}</p>
 
                         <div class="oil-price">
                             ₹${item.price || 0}
@@ -1819,7 +1811,7 @@ function loadProducts() {
                         </div>
 
                         <button class="oil-cart-btn"
-                                onclick="addToCart('${item.name}')">
+                                onclick="addToCart('${item.name}', this)">
                             Add to Cart
                         </button>
 
@@ -1828,6 +1820,125 @@ function loadProducts() {
             });
 
             document.getElementById("oilSlider").innerHTML = html;
+        }
+    });
+
+}
+
+
+// Add To Cart
+function addToCart(item_code, btn) {
+
+    frappe.call({
+        method: "test_webshop.api.cart.add_to_cart",
+        args: {
+            item_code: item_code,
+            qty: 1
+        },
+        freeze: true,
+        freeze_message: "Adding to Cart...",
+
+        callback: function (r) {
+
+            if (r.message) {
+                // Update Navbar Cart Count
+                const cartBadge = document.getElementById("cartBadgeTop");
+
+                if (cartBadge) {
+                    cartBadge.innerText = r.message.cart_count;
+                }
+
+                // Button Animation
+                btn.innerHTML = "✓ Added";
+
+                setTimeout(function () {
+                    btn.innerHTML = "Add to Cart";
+                }, 1200);
+
+            } else {
+
+                frappe.msgprint("Unable to add item to cart.");
+
+            }
+
+        }
+    });
+
+}
+
+frappe.ready(function () {
+    loadBestSellers();
+});
+
+function loadBestSellers() {
+
+    frappe.call({
+        method: "test_webshop.api.products.get_bestsellers",
+
+        callback: function (r) {
+
+            const container = document.getElementById("bestSellerProducts");
+
+            if (!container) {
+                console.error("bestSellerProducts container not found.");
+                return;
+            }
+
+            container.innerHTML = "";
+
+            if (!r.message || r.message.length === 0) {
+                container.innerHTML = `
+                    <div style="width:100%;text-align:center;padding:30px;">
+                        No bestseller products found.
+                    </div>
+                `;
+                return;
+            }
+
+            let html = "";
+
+            r.message.forEach(function (item) {
+
+                let title = item.item_name || "";
+
+                if (title.length > 70) {
+                    title = title.substring(0, 70) + "...";
+                }
+
+                html += `
+                    <div class="product-card">
+
+                        <div class="product-img">
+                            <img src="${item.image || '/assets/frappe/images/ui/no-image.svg'}"
+                                 alt="${item.item_name}">
+                        </div>
+
+                        <div class="product-content">
+
+                            <div class="product-title">
+                                ${title}
+                            </div>
+
+                            <div class="price">
+                                ₹${item.price || 0}
+                            </div>
+
+                            <div class="rating">
+                                ★ 4.9
+                            </div>
+
+                            <button class="btn-cart"
+                                    onclick="addToCart('${item.name}', this)">
+                                Add to Cart
+                            </button>
+
+                        </div>
+
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
         }
     });
 
@@ -1866,9 +1977,7 @@ function loadPromotionVideos() {
                         <video
                             id="video-${index}"
                             class="video-thumb"
-                            autoplay
                             muted
-                            loop
                             playsinline
                             preload="metadata"
                         >
@@ -1879,8 +1988,10 @@ function loadPromotionVideos() {
 
                             <div class="video-product-top">
 
-                                <img src="/files/mustard_oil.png"
-                                     class="video-product-img">
+                                <img
+                                    src="/files/mustard_oil.png"
+                                    class="video-product-img"
+                                >
 
                                 <div class="video-product-info">
                                     <h4>${video.name || ""}</h4>
@@ -1895,10 +2006,6 @@ function loadPromotionVideos() {
                                     class="video-cart-btn watch-btn"
                                     data-index="${index}">
                                     WATCH
-                                </button>
-
-                                <button class="video-bag-btn">
-                                    🛒
                                 </button>
 
                             </div>
@@ -1927,20 +2034,36 @@ function initializeVideos() {
 
     const videos = document.querySelectorAll(".video-thumb");
 
-    // Auto play muted
     videos.forEach(function(video){
 
+        // Initial state
         video.controls = false;
         video.muted = true;
         video.loop = true;
+        video.pause();
 
-        video.play().catch(function(err){
-            console.log(err);
+        // Play on mouse hover
+        video.addEventListener("mouseenter", function () {
+
+            video.play().catch(function(err){
+                console.log(err);
+            });
+
         });
 
-        // Click on video
+        // Pause when mouse leaves
+        video.addEventListener("mouseleave", function () {
+
+            video.pause();
+            video.currentTime = 0;
+
+        });
+
+        // Click on video -> Fullscreen
         video.addEventListener("click", function () {
+
             openVideo(video);
+
         });
 
     });
@@ -1966,50 +2089,80 @@ function initializeVideos() {
 
 function openVideo(video){
 
-    // mute all videos
+    // Stop all other videos
     document.querySelectorAll(".video-thumb").forEach(function(v){
 
-        v.muted = true;
+        v.pause();
+        v.currentTime = 0;
         v.controls = false;
+        v.muted = true;
 
     });
 
-    // enable current
-    video.muted = false;
-    video.controls = true;
+    // Play selected video
     video.currentTime = 0;
+    video.controls = true;
+    video.muted = false;
 
-    video.play();
+    video.play().catch(function(err){
+        console.log(err);
+    });
 
-    // fullscreen
+    // Open fullscreen
     if (video.requestFullscreen) {
+
         video.requestFullscreen();
+
+    } else if (video.webkitRequestFullscreen) {
+
+        video.webkitRequestFullscreen();
+
     } else if (video.webkitEnterFullscreen) {
+
         // iPhone Safari
         video.webkitEnterFullscreen();
-    } else if (video.webkitRequestFullscreen) {
-        // Chrome / Edge
-        video.webkitRequestFullscreen();
+
     } else if (video.msRequestFullscreen) {
+
         video.msRequestFullscreen();
+
     }
 
 }
 
-// Restore after closing fullscreen
+// When fullscreen is closed
 document.addEventListener("fullscreenchange", function(){
 
     if (!document.fullscreenElement){
 
         document.querySelectorAll(".video-thumb").forEach(function(video){
 
+            video.pause();
+            video.currentTime = 0;
             video.controls = false;
             video.muted = true;
-            video.play();
 
         });
 
     }
+
+});
+
+// Safari (iPhone) support
+document.addEventListener("webkitfullscreenchange", function(){
+
+    document.querySelectorAll(".video-thumb").forEach(function(video){
+
+        if (!document.webkitFullscreenElement){
+
+            video.pause();
+            video.currentTime = 0;
+            video.controls = false;
+            video.muted = true;
+
+        }
+
+    });
 
 });
 </script>
