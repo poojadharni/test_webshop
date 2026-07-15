@@ -1565,7 +1565,37 @@ body {
     </a>
 
   </div>
+  
 <script>
+//     let isGuestUser = true;
+
+// function detectUser() {
+
+//     return new Promise((resolve) => {
+
+//         frappe.call({
+//             method: "frappe.auth.get_logged_user",
+
+//             callback: function(r) {
+
+//                 isGuestUser = (r.message === "Guest");
+
+//                 console.log("User:", r.message);
+
+//                 resolve();
+//             },
+
+//             error: function() {
+
+//                 isGuestUser = true;
+//                 resolve();
+//             }
+
+//         });
+
+//     });
+
+// }
 const container = document.getElementById('scrollContainer');
 const dots = document.querySelectorAll('#dots span');
 
@@ -1738,21 +1768,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-frappe.ready(function () {
-    loadProducts();
-});
-
 // Remove HTML tags from description
 function stripHtml(html) {
     let div = document.createElement("div");
     div.innerHTML = html || "";
     return div.textContent || div.innerText || "";
 }
-
-frappe.ready(function () {
-    loadProducts();
-});
 
 // Remove HTML tags
 function stripHtml(html) {
@@ -1761,9 +1782,6 @@ function stripHtml(html) {
     return div.textContent || div.innerText || "";
 }
 
-frappe.ready(function () {
-    loadProducts();
-});
 
 // Remove HTML tags
 function stripHtml(html) {
@@ -1792,7 +1810,9 @@ function loadProducts() {
                 }
 
                 html += `
-                    <div class="oil-card">
+                    <div class="oil-card"
+                         onclick="openProduct('${item.route}')"
+                         style="cursor:pointer;">
 
                         <span class="oil-badge">Fresh</span>
 
@@ -1813,7 +1833,7 @@ function loadProducts() {
                         </div>
 
                         <button class="oil-cart-btn"
-                                onclick="addToCart('${item.name}', this)">
+                                onclick="event.stopPropagation(); addToCart('${item.name}', this);">
                             Add to Cart
                         </button>
 
@@ -1828,8 +1848,33 @@ function loadProducts() {
 }
 
 
+// Open Product Detail Page
+function openProduct(route) {
+
+    if (isGuestUser) {
+
+        window.location.href =
+            "/login?redirect-to=" +
+            encodeURIComponent("/" + route) +
+            "#login";
+
+        return;
+    }
+
+    window.location.href = "/" + route;
+}
+
+
 // Add To Cart
 function addToCart(item_code, btn) {
+
+    if (isGuestUser) {
+
+        window.location.href =
+            "/login?redirect-to=%2Fapp%2Fhome#login";
+
+        return;
+    }
 
     frappe.call({
         method: "test_webshop.api.cart.add_to_cart",
@@ -1843,14 +1888,13 @@ function addToCart(item_code, btn) {
         callback: function (r) {
 
             if (r.message) {
-                // Update Navbar Cart Count
+
                 const cartBadge = document.getElementById("cartBadgeTop");
 
                 if (cartBadge) {
                     cartBadge.innerText = r.message.cart_count;
                 }
 
-                // Button Animation
                 btn.innerHTML = "✓ Added";
 
                 setTimeout(function () {
@@ -1858,19 +1902,11 @@ function addToCart(item_code, btn) {
                 }, 1200);
 
             } else {
-
                 frappe.msgprint("Unable to add item to cart.");
-
             }
-
         }
     });
-
 }
-
-frappe.ready(function () {
-    loadBestSellers();
-});
 
 function loadBestSellers() {
 
@@ -1908,8 +1944,9 @@ function loadBestSellers() {
                 }
 
                 html += `
-                    <div class="product-card">
-
+<div class="product-card"
+onclick="location.href='/${item.route}'"
+     style="cursor:pointer;">
                         <div class="product-img">
                             <img src="${item.image || '/assets/frappe/images/ui/no-image.svg'}"
                                  alt="${item.item_name}">
@@ -1928,12 +1965,10 @@ function loadBestSellers() {
                             <div class="rating">
                                 ★ 4.9
                             </div>
-
-                            <button class="btn-cart"
-                                    onclick="addToCart('${item.name}', this)">
-                                Add to Cart
-                            </button>
-
+  <button class="btn-cart"
+            onclick="event.stopPropagation(); addToCart('${item.name}', this);">
+            Add to Cart
+        </button>
                         </div>
 
                     </div>
@@ -1945,10 +1980,6 @@ function loadBestSellers() {
     });
 
 }
-
-frappe.ready(function () {
-    loadPromotionVideos();
-});
 
 function loadPromotionVideos() {
 
@@ -2165,6 +2196,33 @@ document.addEventListener("webkitfullscreenchange", function(){
         }
 
     });
+
+});
+document.addEventListener("webkitfullscreenchange", function(){
+
+    document.querySelectorAll(".video-thumb").forEach(function(video){
+
+        if (!document.webkitFullscreenElement){
+
+            video.pause();
+            video.currentTime = 0;
+            video.controls = false;
+            video.muted = true;
+
+        }
+
+    });
+
+});
+
+
+frappe.ready(async function () {
+
+    await detectUser();
+
+    loadProducts();
+    loadBestSellers();
+    loadPromotionVideos();
 
 });
 </script>
